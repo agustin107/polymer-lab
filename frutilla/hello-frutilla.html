@@ -1,0 +1,48 @@
+<template>
+	<style>
+		
+	</style>
+
+	<h1>Hello <strong></strong></h1>
+</template>
+
+<script>
+	(function(window, document) {
+		var toImport = (document._currentScript || document.currentScript).ownerDocument,
+			template = toImport.querySelector('template').content,
+			elementPrototype = Object.create(HTMLElement.prototype);
+
+		elementPrototype.who = 'Frutilla';
+
+		elementPrototype.createdCallback = function() {
+			var shadowRoot = this.createShadowRoot(),
+				clone = document.importNode(template, true);
+			shadowRoot.appendChild(clone);
+
+			this.strong = shadowRoot.querySelector('strong');
+
+			if(this.hasAttribute('who')) {
+				var who = this.getAttribute('who');
+				this.setWho(who);
+			} else {
+				this.setWho(this.who);
+			}
+		};
+
+		elementPrototype.attributeChangedCallback = function(attr, oldValue, newValue) {
+			if(attr === 'who') {
+				this.setWho(newValue);
+			}
+		};
+
+		elementPrototype.setWho = function(value) {
+			this.who = value;
+			this.strong.textContent = this.who;
+		};
+
+		window.myElement = document.registerElement('hello-frutilla', {
+			prototype: elementPrototype
+		});
+
+	})(window, document);
+</script>

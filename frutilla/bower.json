@@ -1,0 +1,20 @@
+{
+  "name": "frutilla",
+  "homepage": "https://github.com/agustin107/polymer-lab",
+  "authors": [
+    "Agustin N. R. Ramirez <agustin.n.r.ramirez@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "^0.7.24"
+  }
+}
