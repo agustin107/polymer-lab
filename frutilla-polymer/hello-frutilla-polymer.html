@@ -1,0 +1,19 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="hello-frutilla-polymer">
+	<template>
+		<h1>Hello <strong>{{who}}</strong></h1>
+	</template>
+</dom-module>
+
+<script>
+	Polymer({
+		is: 'hello-frutilla-polymer',
+		properties: {
+			who: {
+				type: String,
+				value: 'Frutilla Polymer'
+			}
+		}
+	});
+</script>
